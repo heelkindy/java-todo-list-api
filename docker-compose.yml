@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16-alpine # Sử dụng phiên bản nhẹ của Postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ADMIN # Tên người dùng database
+      POSTGRES_PASSWORD: ADMIN123 # Mật khẩu database
+      POSTGRES_DB: todo_db # Tên database
+    ports:
+      - "5432:5432"
+    volumes:
+      - todo-data:/var/lib/postgresql/data
+
+volumes:
+  todo-data:
